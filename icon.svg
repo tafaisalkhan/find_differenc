@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF4A8"/>
+      <stop offset="25%" stop-color="#FFD54A"/>
+      <stop offset="60%" stop-color="#F5A623"/>
+      <stop offset="100%" stop-color="#C96A00"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A9481A"/>
+      <stop offset="45%" stop-color="#7E2F10"/>
+      <stop offset="100%" stop-color="#4B1808"/>
+    </linearGradient>
+    <radialGradient id="lens" cx="38%" cy="28%" r="75%">
+      <stop offset="0%" stop-color="#E8FBFF" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#7ED8FF" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#1B8CCC" stop-opacity="0.35"/>
+    </radialGradient>
+    <linearGradient id="map" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF0B8"/>
+      <stop offset="100%" stop-color="#E8C578"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <!-- transparent background -->
+  <g filter="url(#shadow)">
+    <!-- map -->
+    <path d="M140 670
+             C140 620 175 600 220 612
+             L580 708
+             C625 720 655 760 648 804
+             C642 845 607 873 567 867
+             L205 814
+             C162 807 137 772 140 730 Z"
+          fill="url(#map)" stroke="#C9963F" stroke-width="18" stroke-linejoin="round"/>
+    <path d="M180 642
+             C157 650 150 680 163 705
+             C175 728 206 736 228 726"
+          fill="none" stroke="#B9822F" stroke-width="18" stroke-linecap="round"/>
+    <path d="M605 735
+             C635 745 650 775 642 807
+             C634 838 606 858 579 857"
+          fill="none" stroke="#B9822F" stroke-width="18" stroke-linecap="round"/>
+
+    <!-- dotted path and X -->
+    <path d="M255 732 C330 680 412 730 470 694 C520 663 550 650 585 655"
+          fill="none" stroke="#7A4A22" stroke-width="16" stroke-linecap="round"
+          stroke-dasharray="18 24"/>
+    <g stroke="#D92C2C" stroke-width="26" stroke-linecap="round">
+      <line x1="535" y1="765" x2="595" y2="825"/>
+      <line x1="595" y1="765" x2="535" y2="825"/>
+    </g>
+
+    <!-- leaves -->
+    <g fill="#38A84A" stroke="#1D7A32" stroke-width="12">
+      <path d="M170 596 C110 558 95 490 130 445 C187 458 220 512 202 569 Z"/>
+      <path d="M206 580 C181 520 207 465 258 447 C292 496 277 557 228 587 Z"/>
+      <path d="M665 650 C720 603 792 610 829 653 C798 708 735 726 685 695 Z"/>
+      <path d="M691 614 C715 552 776 526 826 552 C823 616 769 658 708 649 Z"/>
+    </g>
+
+    <!-- hat -->
+    <g transform="translate(560 152) rotate(8)">
+      <ellipse cx="125" cy="145" rx="175" ry="58" fill="#8E3E1B"/>
+      <path d="M10 143
+               C20 66 70 20 135 20
+               C205 20 247 68 245 145
+               C198 167 52 166 10 143 Z"
+            fill="#B65A28" stroke="#6A2A10" stroke-width="16"/>
+      <rect x="43" y="112" width="175" height="28" rx="14" fill="#5D2410"/>
+      <rect x="146" y="107" width="50" height="38" rx="6" fill="url(#gold)" stroke="#8A4E00" stroke-width="8"/>
+    </g>
+
+    <!-- magnifying glass -->
+    <g>
+      <!-- handle -->
+      <path d="M604 654 L816 866"
+            stroke="#6A260C" stroke-width="104" stroke-linecap="round"/>
+      <path d="M604 654 L816 866"
+            stroke="url(#wood)" stroke-width="82" stroke-linecap="round"/>
+      <path d="M783 835 L840 892"
+            stroke="url(#gold)" stroke-width="100" stroke-linecap="round"/>
+      <path d="M576 624 L641 689"
+            stroke="url(#gold)" stroke-width="88" stroke-linecap="round"/>
+
+      <!-- lens -->
+      <circle cx="470" cy="470" r="286" fill="url(#gold)" stroke="#9B5800" stroke-width="18"/>
+      <circle cx="470" cy="470" r="244" fill="url(#lens)" stroke="#0A6B9A" stroke-width="16"/>
+
+      <!-- lens shine -->
+      <path d="M330 320 C390 255 470 236 545 255"
+            fill="none" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round" opacity="0.75"/>
+      <path d="M300 355 C276 389 262 432 260 478"
+            fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" opacity="0.5"/>
+
+      <!-- paw -->
+      <g fill="#F04A3D" stroke="#B91F2B" stroke-width="14">
+        <ellipse cx="470" cy="545" rx="118" ry="92"/>
+        <ellipse cx="365" cy="390" rx="48" ry="62"/>
+        <ellipse cx="450" cy="350" rx="48" ry="66"/>
+        <ellipse cx="538" cy="366" rx="48" ry="64"/>
+        <ellipse cx="602" cy="430" rx="44" ry="58"/>
+      </g>
+      <g fill="#FFFFFF" opacity="0.35">
+        <ellipse cx="428" cy="512" rx="35" ry="18" transform="rotate(-20 428 512)"/>
+        <ellipse cx="352" cy="370" rx="14" ry="9" transform="rotate(-20 352 370)"/>
+        <ellipse cx="436" cy="330" rx="14" ry="9" transform="rotate(-15 436 330)"/>
+        <ellipse cx="526" cy="346" rx="14" ry="9" transform="rotate(-15 526 346)"/>
+        <ellipse cx="590" cy="411" rx="14" ry="9" transform="rotate(-15 590 411)"/>
+      </g>
+    </g>
+
+    <!-- sparkle -->
+    <path d="M275 238
+             L291 280 L333 296 L291 312 L275 354 L259 312 L217 296 L259 280 Z"
+          fill="#FFFFFF" opacity="0.95"/>
+  </g>
+</svg>

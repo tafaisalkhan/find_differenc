@@ -1,0 +1,48 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Hidden Object Level Engine"
+run/main_scene="res://scenes/ui/StartMenu.tscn"
+config/features=PackedStringArray("4.6")
+boot_splash/bg_color=Color(0.73, 0.92, 0.97, 1)
+boot_splash/stretch_mode=0
+boot_splash/image="res://assets/general/appicon.png"
+config/icon="res://assets/general/appicon.png"
+
+[autoload]
+
+SignalHub="*res://autoload/SignalHub.gd"
+GameManager="*res://autoload/GameManager.gd"
+AudioManager="*res://autoload/AudioManager.gd"
+AppSettings="*res://autoload/AppSettings.gd"
+AdsManager="*res://autoload/AdsManager.gd"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/admob/plugin.cfg")
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://addons/admob/gdscript/sample/translations/admob_sample.en.translation", "res://addons/admob/gdscript/sample/translations/admob_sample.pt_BR.translation", "res://addons/admob/gdscript/sample/translations/admob_sample.es.translation", "res://addons/admob/gdscript/sample/translations/admob_sample.zh_CN.translation", "res://addons/admob/gdscript/sample/translations/admob_sample.ja.translation")
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

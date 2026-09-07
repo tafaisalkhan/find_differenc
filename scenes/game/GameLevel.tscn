@@ -1,0 +1,130 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/GameLevel.gd" id="1_gamelevel"]
+[ext_resource type="PackedScene" path="res://scenes/ui/LevelUI.tscn" id="2_levelui"]
+
+[node name="GameLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_gamelevel")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="BackgroundLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.52, 0.75, 0.52, 1)
+
+[node name="ImageCanvas" type="Control" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 260.0
+offset_right = 704.0
+offset_bottom = 1084.0
+clip_contents = true
+
+[node name="ImageBackdrop" type="ColorRect" parent="ImageCanvas"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.035, 0.105, 0.17, 1)
+
+[node name="ZoomContent" type="Control" parent="ImageCanvas"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ImageRow" type="VBoxContainer" parent="ImageCanvas/ZoomContent"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 688.0
+offset_bottom = 1120.0
+theme_override_constants/separation = 12
+
+[node name="OriginalImage" type="TextureRect" parent="ImageCanvas/ZoomContent/ImageRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DifferentImage" type="TextureRect" parent="ImageCanvas/ZoomContent/ImageRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FoundOverlay" type="Control" parent="ImageCanvas/ZoomContent"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 688.0
+offset_bottom = 1120.0
+mouse_filter = 2
+
+[node name="FrameTop" type="ColorRect" parent="ImageCanvas"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.96, 0.98, 1, 1)
+
+[node name="FrameBottom" type="ColorRect" parent="ImageCanvas"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.96, 0.98, 1, 1)
+
+[node name="FrameLeft" type="ColorRect" parent="ImageCanvas"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 5.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.96, 0.98, 1, 1)
+
+[node name="FrameRight" type="ColorRect" parent="ImageCanvas"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.96, 0.98, 1, 1)
+
+[node name="UILayer" parent="." instance=ExtResource("2_levelui")]
+unique_name_in_owner = true

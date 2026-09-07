@@ -1,0 +1,179 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/LevelComplete.gd" id="1_complete"]
+[ext_resource type="Script" path="res://scripts/ui/StarIcon.gd" id="2_star"]
+[ext_resource type="FontFile" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="3_font"]
+
+[sub_resource type="StyleBoxFlat" id="Style_panel"]
+bg_color = Color(0.94, 0.99, 1, 0.98)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.31, 0.83, 0.9, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+shadow_color = Color(0.01, 0.08, 0.16, 0.52)
+shadow_size = 28
+shadow_offset = Vector2(0, 14)
+
+[sub_resource type="StyleBoxFlat" id="Style_next"]
+bg_color = Color(0.08, 0.46, 0.69, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.02, 0.12, 0.25, 0.25)
+shadow_size = 8
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="Style_next_hover"]
+bg_color = Color(0.11, 0.59, 0.79, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="Style_replay"]
+bg_color = Color(1, 1, 1, 0.85)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.08, 0.46, 0.69, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Animation" id="Animation_reset"]
+resource_name = "RESET"
+length = 0.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_main"]
+_data = {&"RESET": SubResource("Animation_reset")}
+
+[node name="LevelComplete" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("1_complete")
+
+[node name="Dimmer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.015, 0.08, 0.15, 0.78)
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 205.0
+offset_right = 642.0
+offset_bottom = 1075.0
+pivot_offset = Vector2(282, 435)
+theme_override_styles/panel = SubResource("Style_panel")
+
+[node name="Content" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="TopSpace" type="Control" parent="Panel/Content"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.07, 0.27, 0.49, 1)
+theme_override_colors/font_shadow_color = Color(0.25, 0.8, 0.88, 0.3)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 49
+text = "LEVEL COMPLETE!"
+horizontal_alignment = 1
+
+[node name="Ribbon" type="Label" parent="Panel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.51, 0.68, 0.72)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+text = "SHARP EYES — GREAT WORK"
+horizontal_alignment = 1
+
+[node name="Stars" type="HBoxContainer" parent="Panel/Content"]
+custom_minimum_size = Vector2(0, 165)
+layout_mode = 2
+theme_override_constants/separation = -8
+alignment = 1
+
+[node name="Star1" type="Control" parent="Panel/Content/Stars"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_star")
+
+[node name="Star2" type="Control" parent="Panel/Content/Stars"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_star")
+
+[node name="Star3" type="Control" parent="Panel/Content/Stars"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_star")
+
+[node name="ScoreLabel" type="Label" parent="Panel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.47, 0.08, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 38
+text = "SCORE\n0"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Panel/Content"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 14
+
+[node name="NextLevelButton" type="Button" parent="Panel/Content/Buttons"]
+custom_minimum_size = Vector2(330, 72)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("Style_next")
+theme_override_styles/hover = SubResource("Style_next_hover")
+theme_override_styles/pressed = SubResource("Style_next_hover")
+text = "NEXT LEVEL  ▶"
+
+[node name="ReplayButton" type="Button" parent="Panel/Content/Buttons"]
+custom_minimum_size = Vector2(330, 65)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.08, 0.4, 0.62, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("Style_replay")
+theme_override_styles/hover = SubResource("Style_replay")
+theme_override_styles/pressed = SubResource("Style_replay")
+text = "↻  REPLAY"
+
+[node name="BottomSpace" type="Control" parent="Panel/Content"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {&"": SubResource("AnimationLibrary_main")}

@@ -1,0 +1,96 @@
+{
+	"different_image": "res://assets/levels/level1/level1_different.png",
+	"items_to_find": [
+		{
+			"found": false,
+			"hint": "",
+			"id": "item_001",
+			"image_file": "res://assets/levels/level1/level1_original.png",
+			"name": "New item",
+			"radius": 43.0,
+			"type": "missing",
+			"x": 679.353637695313,
+			"y": 709.5947265625
+		},
+		{
+			"found": false,
+			"hint": "",
+			"id": "item_002",
+			"image_file": "res://assets/levels/level1/level1_original.png",
+			"name": "New item",
+			"radius": 43.0,
+			"type": "missing",
+			"x": 518.29638671875,
+			"y": 720.823913574219
+		},
+		{
+			"found": false,
+			"hint": "",
+			"id": "item_003",
+			"image_file": "res://assets/levels/level1/level1_original.png",
+			"name": "New item",
+			"radius": 50.0,
+			"type": "missing",
+			"x": 1252.41772460938,
+			"y": 780.712890625
+		},
+		{
+			"found": false,
+			"hint": "",
+			"id": "item_004",
+			"image_file": "res://assets/levels/level1/level1_original.png",
+			"name": "New item",
+			"radius": 50.0,
+			"type": "missing",
+			"x": 1304.85498046875,
+			"y": 365.233184814453
+		},
+		{
+			"found": false,
+			"hint": "",
+			"id": "item_005",
+			"image_file": "res://assets/levels/level1/level1_original.png",
+			"name": "New item",
+			"radius": 50.0,
+			"type": "missing",
+			"x": 1203.72607421875,
+			"y": 267.913635253906
+		},
+		{
+			"found": false,
+			"hint": "",
+			"id": "item_006",
+			"image_file": "res://assets/levels/level1/level1_original.png",
+			"name": "New item",
+			"radius": 50.0,
+			"type": "missing",
+			"x": 368.475677490234,
+			"y": 499.983337402344
+		},
+		{
+			"found": false,
+			"hint": "",
+			"id": "item_007",
+			"image_file": "res://assets/levels/level1/level1_original.png",
+			"name": "New item",
+			"radius": 50.0,
+			"type": "missing",
+			"x": 904.084655761719,
+			"y": 88.2467803955078
+		},
+		{
+			"found": false,
+			"hint": "",
+			"id": "item_008",
+			"image_file": "res://assets/levels/level1/level1_original.png",
+			"name": "New item",
+			"radius": 50.0,
+			"type": "missing",
+			"x": 1023.94116210938,
+			"y": 623.504333496094
+		}
+	],
+	"level_id": "level1",
+	"original_image": "res://assets/levels/level1/level1_original.png",
+	"show_original_in_play": true
+}

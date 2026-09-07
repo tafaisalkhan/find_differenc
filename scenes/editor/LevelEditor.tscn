@@ -1,0 +1,180 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/editor/LevelEditor.gd" id="1_leveleditor"]
+
+[node name="LevelEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_leveleditor")
+
+[node name="ToolbarLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Toolbar" type="ScrollContainer" parent="ToolbarLayer"]
+unique_name_in_owner = true
+z_index = 10
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -176.0
+offset_bottom = 230.0
+grow_horizontal = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ToolbarLayer/Toolbar"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TopRow" type="GridContainer" parent="ToolbarLayer/Toolbar/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+columns = 3
+
+[node name="ModeButton" type="Button" parent="ToolbarLayer/Toolbar/VBoxContainer/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+size_flags_horizontal = 3
+text = "Mode: Edit"
+
+[node name="LevelIdEdit" type="LineEdit" parent="ToolbarLayer/Toolbar/VBoxContainer/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+size_flags_horizontal = 3
+placeholder_text = "level_id"
+text = "level1"
+
+[node name="ItemNameEdit" type="LineEdit" parent="ToolbarLayer/Toolbar/VBoxContainer/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 36)
+placeholder_text = "Item name"
+
+[node name="RadiusSpin" type="SpinBox" parent="ToolbarLayer/Toolbar/VBoxContainer/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+min_value = 1.0
+max_value = 512.0
+value = 35.0
+prefix = "Square Size "
+
+[node name="TypeOption" type="OptionButton" parent="ToolbarLayer/Toolbar/VBoxContainer/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+
+[node name="SaveButton" type="Button" parent="ToolbarLayer/Toolbar/VBoxContainer/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+text = "Save Level"
+
+[node name="CancelButton" type="Button" parent="ToolbarLayer/Toolbar/VBoxContainer/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+text = "Cancel"
+
+[node name="ZoomOutButton" type="Button" parent="ToolbarLayer/Toolbar/VBoxContainer/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+text = "Zoom -"
+
+[node name="ZoomInButton" type="Button" parent="ToolbarLayer/Toolbar/VBoxContainer/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+text = "Zoom +"
+
+[node name="HintEdit" type="TextEdit" parent="ToolbarLayer/Toolbar/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 54)
+placeholder_text = "Optional hint text"
+
+[node name="ActionLabel" type="Label" parent="ToolbarLayer/Toolbar/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Action: Add (A)"
+
+[node name="ToolbarToggleButton" type="Button" parent="ToolbarLayer"]
+unique_name_in_owner = true
+z_index = 11
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 52.0
+grow_horizontal = 0
+text = "Hide Toolbar"
+
+[node name="ImageScroll" type="ScrollContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 2
+
+[node name="ZoomCanvas" type="Control" parent="ImageScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(688, 1018)
+
+[node name="ImageRow" type="VBoxContainer" parent="ImageScroll/ZoomCanvas"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 688.0
+offset_bottom = 1018.0
+theme_override_constants/separation = 16
+
+[node name="ToolbarClearance" type="Control" parent="ImageScroll/ZoomCanvas/ImageRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 214)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="OriginalImage" type="TextureRect" parent="ImageScroll/ZoomCanvas/ImageRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DifferentImage" type="TextureRect" parent="ImageScroll/ZoomCanvas/ImageRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PreviewOverlay" type="Control" parent="ImageScroll/ZoomCanvas"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 688.0
+offset_bottom = 1018.0
+mouse_filter = 2

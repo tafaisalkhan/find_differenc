@@ -1,0 +1,404 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/LevelUI.gd" id="1_levelui"]
+[ext_resource type="FontFile" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_gamefont"]
+[ext_resource type="PackedScene" path="res://scenes/ui/LevelComplete.tscn" id="3_complete"]
+[ext_resource type="Texture2D" path="res://assets/general/hint_icon.png" id="4_hint_icon"]
+[ext_resource type="Texture2D" path="res://assets/general/back_icon.png" id="5_back_icon"]
+
+[sub_resource type="Theme" id="Theme_game"]
+default_font = ExtResource("2_gamefont")
+default_font_size = 18
+
+[sub_resource type="StyleBoxFlat" id="Style_round_blue"]
+bg_color = Color(1, 0.976, 0.91, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.02, 0.02, 0.02, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0.02, 0.12, 0.24, 0.35)
+shadow_size = 6
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="Style_coin"]
+bg_color = Color(1, 0.94, 0.84, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.93, 0.58, 0.19, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+shadow_color = Color(0.15, 0.1, 0.03, 0.24)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="Style_strip"]
+bg_color = Color(1, 0.976, 0.91, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12, 0.34, 0.2, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+
+[sub_resource type="StyleBoxFlat" id="Style_items_green"]
+bg_color = Color(0.52, 0.75, 0.52, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12, 0.34, 0.2, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+
+[sub_resource type="StyleBoxFlat" id="Style_white_pill"]
+bg_color = Color(1, 0.976, 0.91, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12, 0.34, 0.2, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+shadow_color = Color(0.02, 0.12, 0.2, 0.25)
+shadow_size = 7
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="Style_hint"]
+bg_color = Color(1, 0.976, 0.91, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.12, 0.34, 0.2, 1)
+corner_radius_top_left = 42
+corner_radius_top_right = 42
+corner_radius_bottom_right = 42
+corner_radius_bottom_left = 42
+shadow_color = Color(0.02, 0.13, 0.22, 0.34)
+shadow_size = 9
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxEmpty" id="Style_empty"]
+
+[node name="UILayer" type="CanvasLayer"]
+script = ExtResource("1_levelui")
+
+[node name="TopAdSpace" type="Control" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="TopAdAnchor" type="CenterContainer" parent="TopAdSpace"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Header" type="Control" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 96.0
+offset_bottom = 166.0
+grow_horizontal = 2
+theme = SubResource("Theme_game")
+
+[node name="ModeButton" type="Button" parent="Header"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 22.0
+offset_top = 5.0
+offset_right = 82.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(1, 0.976, 0.91, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("Style_round_blue")
+theme_override_styles/hover = SubResource("Style_round_blue")
+theme_override_styles/pressed = SubResource("Style_round_blue")
+text = "Ⅱ"
+
+[node name="LevelLabel" type="Label" parent="Header"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 230.0
+offset_right = 490.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(1, 0.976, 0.91, 1)
+theme_override_colors/font_shadow_color = Color(0.08, 0.22, 0.35, 0.8)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 44
+text = "LEVEL 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Header"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 540.0
+offset_top = 11.0
+offset_right = 696.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0.07, 0.07, 0.07, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("Style_strip")
+text = "★  0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemsPanel" type="PanelContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -274.0
+offset_right = -22.0
+offset_bottom = -210.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_game")
+theme_override_styles/panel = SubResource("Style_items_green")
+
+[node name="ItemsMargin" type="MarginContainer" parent="ItemsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 6
+
+[node name="ItemsScroll" type="ScrollContainer" parent="ItemsPanel/ItemsMargin"]
+layout_mode = 2
+horizontal_scroll_mode = 1
+vertical_scroll_mode = 0
+
+[node name="ItemsList" type="HBoxContainer" parent="ItemsPanel/ItemsMargin/ItemsScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 7
+alignment = 1
+
+[node name="StatusLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -210.0
+offset_bottom = -188.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_game")
+theme_override_colors/font_color = Color(0.07, 0.07, 0.07, 0.9)
+theme_override_colors/font_shadow_color = Color(0.03, 0.13, 0.22, 0.75)
+theme_override_font_sizes/font_size = 20
+text = ""
+horizontal_alignment = 1
+
+[node name="BottomControls" type="Control" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -196.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_game")
+
+[node name="RatePanel" type="PanelContainer" parent="BottomControls"]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 198.0
+offset_bottom = 88.0
+theme_override_styles/panel = SubResource("Style_white_pill")
+
+[node name="RateRow" type="HBoxContainer" parent="BottomControls/RatePanel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="LikeButton" type="Button" parent="BottomControls/RatePanel/RateRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.32, 0.37, 1)
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("Style_empty")
+theme_override_styles/hover = SubResource("Style_empty")
+theme_override_styles/pressed = SubResource("Style_empty")
+text = "+"
+tooltip_text = "Like"
+
+[node name="Divider" type="VSeparator" parent="BottomControls/RatePanel/RateRow"]
+layout_mode = 2
+
+[node name="DislikeButton" type="Button" parent="BottomControls/RatePanel/RateRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25, 0.39, 0.52, 1)
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("Style_empty")
+theme_override_styles/hover = SubResource("Style_empty")
+theme_override_styles/pressed = SubResource("Style_empty")
+text = "−"
+tooltip_text = "Dislike"
+
+[node name="ZoomOutButton" type="Button" parent="BottomControls"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 286.0
+offset_top = 8.0
+offset_right = 374.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(1, 0.976, 0.91, 1)
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("Style_empty")
+theme_override_styles/hover = SubResource("Style_empty")
+theme_override_styles/pressed = SubResource("Style_empty")
+text = "−"
+tooltip_text = "Zoom out"
+
+[node name="RewardAdButton" type="Button" parent="BottomControls"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 144.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0.07, 0.07, 0.07, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("Style_empty")
+theme_override_styles/hover = SubResource("Style_empty")
+theme_override_styles/pressed = SubResource("Style_empty")
+icon = ExtResource("4_hint_icon")
+expand_icon = true
+icon_max_width = 40
+text = ""
+tooltip_text = "Watch a rewarded ad to reveal one item"
+
+[node name="ZoomInButton" type="Button" parent="BottomControls"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 346.0
+offset_top = 8.0
+offset_right = 434.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(1, 0.976, 0.91, 1)
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("Style_hint")
+theme_override_styles/hover = SubResource("Style_hint")
+theme_override_styles/pressed = SubResource("Style_hint")
+text = "+"
+tooltip_text = "Zoom in"
+
+[node name="ZoomBackButton" type="Button" parent="."]
+unique_name_in_owner = true
+visible = true
+z_index = 100
+theme = SubResource("Theme_game")
+layout_mode = 0
+anchors_preset = 15
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -178.0
+offset_right = -24.0
+offset_bottom = -110.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.07, 0.07, 0.07, 1)
+theme_override_font_sizes/font_size = 17
+icon = ExtResource("5_back_icon")
+expand_icon = true
+icon_max_width = 40
+theme_override_styles/normal = SubResource("Style_empty")
+theme_override_styles/hover = SubResource("Style_empty")
+theme_override_styles/pressed = SubResource("Style_empty")
+text = ""
+tooltip_text = "Return to the full pictures"
+
+[node name="TimeLabel" type="Label" parent="Header"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 250.0
+offset_top = 66.0
+offset_right = 470.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0.07, 0.07, 0.07, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("Style_white_pill")
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressLabel" type="Label" parent="BottomControls"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 538.0
+offset_top = 66.0
+offset_right = 696.0
+offset_bottom = 98.0
+theme_override_colors/font_color = Color(0.07, 0.07, 0.07, 0.9)
+theme_override_font_sizes/font_size = 15
+text = "0 / 0 FOUND"
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="BottomControls"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 250.0
+offset_right = 470.0
+offset_bottom = 60.0
+text = "NEXT LEVEL"
+
+[node name="BottomAdSpace" type="Control" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="BottomAdAnchor" type="CenterContainer" parent="BottomAdSpace"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LevelComplete" parent="." instance=ExtResource("3_complete")]
+unique_name_in_owner = true

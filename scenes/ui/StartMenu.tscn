@@ -1,0 +1,258 @@
+[gd_scene load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/StartMenu.gd" id="1_start"]
+[ext_resource type="Texture2D" path="res://assets/general/magnifine_glass.png" id="2_scope"]
+[ext_resource type="FontFile" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="3_gamefont"]
+[ext_resource type="Texture2D" path="res://assets/general/background.png" id="4_background"]
+[ext_resource type="Texture2D" path="res://assets/general/play_btn.png" id="5_play"]
+[ext_resource type="Texture2D" path="res://assets/general/setting_btn.png" id="6_settings"]
+
+[sub_resource type="Theme" id="Theme_start"]
+default_font = ExtResource("3_gamefont")
+default_font_size = 18
+
+[sub_resource type="Gradient" id="Gradient_bg"]
+colors = PackedColorArray(0.93, 0.99, 1, 1, 0.73, 0.92, 0.97, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture_bg"]
+gradient = SubResource("Gradient_bg")
+width = 720
+height = 1280
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="Style_play"]
+bg_color = Color(0.086, 0.365, 0.62, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.33, 0.86, 0.91, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+shadow_color = Color(0.02, 0.15, 0.28, 0.28)
+shadow_size = 12
+shadow_offset = Vector2(0, 7)
+
+[sub_resource type="StyleBoxFlat" id="Style_play_hover"]
+bg_color = Color(0.12, 0.46, 0.72, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.52, 0.96, 1, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[sub_resource type="StyleBoxFlat" id="Style_replay"]
+bg_color = Color(1, 1, 1, 0.45)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.09, 0.36, 0.62, 0.35)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxEmpty" id="Style_empty"]
+
+[sub_resource type="StyleBoxTexture" id="Style_play_image"]
+texture = ExtResource("5_play")
+
+[sub_resource type="StyleBoxTexture" id="Style_settings_image"]
+texture = ExtResource("6_settings")
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_start")
+script = ExtResource("1_start")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_background")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Bubble1" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 150.0
+offset_right = 200.0
+offset_bottom = 290.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.18)
+
+[node name="Bubble2" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 650.0
+offset_right = 650.0
+offset_bottom = 740.0
+mouse_filter = 2
+color = Color(0.34, 0.86, 0.91, 0.12)
+
+[node name="Kicker" type="Label" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 82.0
+offset_right = 500.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(1, 0.976, 0.91, 0.92)
+theme_override_font_sizes/font_size = 18
+text = "A SHARP-EYE CHALLENGE"
+horizontal_alignment = 1
+
+[node name="TitleContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 148.0
+offset_right = 654.0
+offset_bottom = 300.0
+theme_override_constants/separation = -8
+alignment = 1
+
+[node name="FindRow" type="HBoxContainer" parent="TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="DifferenceRow" type="HBoxContainer" parent="TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Microscope" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 325.0
+offset_right = 490.0
+offset_bottom = 585.0
+pivot_offset = Vector2(130, 130)
+mouse_filter = 2
+texture = ExtResource("2_scope")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScanGlow" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 568.0
+offset_right = 585.0
+offset_bottom = 590.0
+mouse_filter = 2
+color = Color(0.25, 0.95, 1, 0.35)
+
+[node name="ScanLine" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 577.0
+offset_right = 585.0
+offset_bottom = 581.0
+mouse_filter = 2
+color = Color(0.68, 1, 1, 1)
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 696.0
+offset_right = 610.0
+offset_bottom = 800.0
+theme_override_colors/font_color = Color(1, 0.976, 0.91, 1)
+theme_override_colors/font_shadow_color = Color(0.08, 0.04, 0.02, 0.8)
+theme_override_constants/line_spacing = 8
+theme_override_font_sizes/font_size = 29
+text = "LOOK CLOSER\nSPOT THEM ALL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.0
+offset_top = 160.0
+offset_right = -15.0
+offset_bottom = 260.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(145, 50)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("Style_play_image")
+theme_override_styles/hover = SubResource("Style_play_image")
+theme_override_styles/pressed = SubResource("Style_play_image")
+text = "PLAY  ▶"
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = 160.0
+offset_right = 305.0
+offset_bottom = 260.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(145, 50)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("Style_settings_image")
+theme_override_styles/hover = SubResource("Style_settings_image")
+theme_override_styles/pressed = SubResource("Style_settings_image")
+text = "SETTINGS"
+
+[node name="ReplayButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 270.0
+offset_top = 1004.0
+offset_right = 450.0
+offset_bottom = 1062.0
+theme_override_colors/font_color = Color(0.086, 0.365, 0.62, 0.8)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("Style_replay")
+theme_override_styles/hover = SubResource("Style_replay")
+theme_override_styles/pressed = SubResource("Style_replay")
+theme_override_styles/disabled = SubResource("Style_empty")
+text = "↻  REPLAY"
+
+[node name="Footer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.976, 0.91, 0.78)
+theme_override_font_sizes/font_size = 16
+text = "OBSERVE  •  COMPARE  •  DISCOVER"
+horizontal_alignment = 1
